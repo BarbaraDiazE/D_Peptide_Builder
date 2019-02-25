@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>t-SNE</title>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<head>
+<body>
+<!-- pusimos esto -->
+        <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                <!-- <div class="card" style="width: 150rem;">
+            <div class="card-body" style="background-color:lightsteelblue;">
+                 -->
+                  <h1 class="display-4"style="color:DarkSlateGrey">D-Peptide Builder</h1>
+                  <!-- <p class="lead" style='color:DarkCyan'>A Difacquim Tool lo enumerate peptides</p> -->
+                  <!-- <p class="lead" style='color:teal'>Version 1.0</p> -->
+                </div>
+            </div>
+   </body>
+   </head>
+<head>
+    <body> 
+    <div class="container">
+            <h2 style='color:DarkCyan'>Select perplexity value</h2>
+                <div class="row">
+                    <form method="post"> {% csrf_token %}
+                        {% for field in form %}
+                            <div class="col-md-3">
+                                <h3 style="border:2px solid DarkCyan">{{ field.label }}</h3>
+                                <p style='color:teal'>{{ field }}</p>
+                            </div>
+                        {% endfor %}
+                     <input type="submit" class="btn btn-primary btn-lg btn-block"  style="background-color: darkcyan" value="Perform TSNE">
+                    </form>
+                </div>
+    </div>
+    </body>
+</head>
+</html>
+
+
+
+

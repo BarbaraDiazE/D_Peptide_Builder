@@ -1,0 +1,30 @@
+version: '3'
+services: 
+  app:
+    build: ./app/
+    container_name: peptide_server
+    # command: /bin/bash -c "/opt/conda/envs/rdkit-env/bin/python3 manage.py runserver 0.0.0.0:8000"
+    # ports: 
+    #   - 8000:8000
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    restart: always
+    networks: 
+      - nginx_network
+
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+    networks: 
+      - nginx_network
+    depends_on: 
+      - app
+
+networks: 
+  nginx_network:
+    driver: bridge
